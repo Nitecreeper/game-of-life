@@ -38,12 +38,18 @@ export class AppComponent implements OnInit {
         this.board.checkBoard();
         this.generation++;
       }
-    }, 5000);
+    }, 100);
     
   }
 
   onClick(pRow: number, pCol: number){
     this.board.changeStatus(pRow,pCol);
+    console.log(pRow,pCol);
+    
+  }
+
+  onClickPausar() {
+    this.gameStatus = this.gameStatus === 0 ? 1: 0;
   }
   
 }

@@ -11,12 +11,14 @@ export class Board{
     }
 
     private fillBoard(pWidth: number, pHeight: number): void {
+
         for (let c = 0; c < pWidth; c++) {
             this.board[c] = [];
             for (let f = 0; f < pHeight; f++) {
                 this.board[c][f] = 0;          
             }
         }
+
     }
 
     public status(coordX: number, coordY: number): number {
@@ -33,9 +35,8 @@ export class Board{
 
         for (let c = 0; c < this.board.length; c++) {
             tmpBoard[c] = [];
-            for (let f = 0; f < this.board.length; f++) {
-                tmpBoard[c].push(this.checkRules(c,f));
-                
+            for (let f = 0; f < this.board[c].length; f++) {
+                tmpBoard[c].push(this.checkRules(c,f));      
             }
         }
 
@@ -50,8 +51,8 @@ export class Board{
         const xMenos: number = (coordX - 1 < 0) ? (width - 1) : (coordX - 1);
         const xMas: number = (coordX + 1 >= width) ? 0 : (coordX + 1);
 
-        const yMenos: number = (coordX - 1 < 0) ? (height - 1) : (coordY - 1);
-        const yMas: number = (coordX + 1 >= height) ? 0 : (coordX + 1);
+        const yMenos: number = (coordY - 1 < 0) ? (height - 1) : (coordY - 1);
+        const yMas: number = (coordY + 1 >= height) ? 0 : (coordY + 1);
 
         const currentStatus: number = this.board[coordX][coordY];
 
