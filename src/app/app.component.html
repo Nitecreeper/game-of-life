@@ -1,4 +1,25 @@
-<h1>{{ title }}</h1>
+<div>
+  <h1>{{ title }}</h1>
+  
+  <div class="info">
+
+    <button (click)="onClickPausar()" class="buttonStatus" [ngClass]="{ running: buttonStatus === 'Paused'}"> {{buttonStatus}} </button>
+
+    <button (click)="onClickReset()" class="buttonReset"> RESET </button>
+
+  </div>
+  
+  <br>
+
+  <div>
+    <h3> Game Status: </h3>
+    <p> Generación: {{generation}}</p>
+    <p> Células vivas: {{aliveCells}}</p>
+  </div>
+
+</div>
+
+<br>
 
 <div class="game">
   <div class="row" *ngFor="let row of arrNumRows">
@@ -8,8 +29,4 @@
 
     </div>
   </div>
-</div>
-
-<div class="info">
-  <button (click)="onClickPausar()"> START/PAUSA </button>
 </div>

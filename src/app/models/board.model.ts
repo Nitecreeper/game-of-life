@@ -1,12 +1,16 @@
 export class Board{
 
     private board: number[][];
+    private pWidth: number;
+    private pHeight: number;
 
     constructor(pWidth: number, pHeight: number){
 
         this.board = [];
+        this.pWidth = pWidth;
+        this.pHeight = pHeight;
 
-        this.fillBoard(pWidth, pHeight);
+        this.fillBoard(this.pWidth, this.pHeight);
         
     }
 
@@ -75,5 +79,22 @@ export class Board{
         }
 
         return 0;
+    }
+
+    public aliveCells(): number{
+
+        let suma = 0;
+
+        for (let c = 0; c < this.board.length; c++) {
+            for (let f = 0; f < this.board[c].length; f++) {
+                suma += this.board[c][f];                
+            }
+        }
+
+        return suma;
+    }
+
+    public clearBoard(): void{
+        this.fillBoard(this.pWidth, this.pHeight);
     }
 }
