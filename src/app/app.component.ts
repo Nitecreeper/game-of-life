@@ -68,6 +68,7 @@ export class AppComponent implements OnInit {
   public onClickReset(): void{
     this.board.clearBoard();
     this.checkAliveCells();
+    this.generation = 0;
   }
 
   private checkAliveCells(): void{
